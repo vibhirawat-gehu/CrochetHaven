@@ -45,7 +45,9 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 5%;
-  background-color: var(--bg-color);
+  background-color: rgba(253, 251, 247, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -53,10 +55,16 @@ ul {
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #ff9fb2;
-  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .nav-links {
@@ -72,6 +80,15 @@ ul {
 
 .nav-links a:hover, .nav-links a.active {
   color: #ff9fb2;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 5px;
 }
 
 .cart-icon {
@@ -379,13 +396,19 @@ ul {
 
 .cart-summary {
   margin-top: 2rem;
-  text-align: right;
+  padding-top: 2rem;
+  border-top: 2px solid #f0e6ea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .cart-total {
   font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .empty-cart {
@@ -423,9 +446,31 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    gap: 1rem;
+  .navbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem 5%;
   }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #f0e6ea;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
   
   .hero h1 {
     font-size: 2.5rem;
